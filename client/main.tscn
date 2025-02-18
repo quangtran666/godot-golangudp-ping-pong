@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckxjwk83sx4b0"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_c1rp6"]
+[ext_resource type="PackedScene" uid="uid://dft2xfcj56kk2" path="res://paddle.tscn" id="2_xunir"]
+[ext_resource type="PackedScene" uid="uid://d3atgn4ih73mc" path="res://ball.tscn" id="3_cyop0"]
+[ext_resource type="Script" path="res://logger.gd" id="4_5nudi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md44f"]
+size = Vector2(1167, 20)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_c1rp6")
+
+[node name="Player1Paddle" parent="." instance=ExtResource("2_xunir")]
+position = Vector2(50, 300)
+
+[node name="Player2Paddle" parent="." instance=ExtResource("2_xunir")]
+position = Vector2(1064, 300)
+
+[node name="Ball" parent="." instance=ExtResource("3_cyop0")]
+position = Vector2(577, 300)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 19.0
+offset_top = 494.0
+offset_right = 384.0
+offset_bottom = 628.0
+script = ExtResource("4_5nudi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_md44f")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-31, 0)
+rotation = 1.57452
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_md44f")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(1180, -5)
+rotation = 1.57452
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_md44f")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, 646)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_md44f")
